@@ -1,5 +1,6 @@
 from os import access, R_OK
 from os.path import isfile
+from numpy import genfromtxt
 from sys import exit
 import json
 
@@ -21,6 +22,16 @@ class ConfigParser:
 			exit(1)
 		return decoded_contents
 
+	def _add_radio_maps(self, decoded_contents):
+		for ap in decoded_contents["ap_properties"]:
+			try:
+				ap["radio_map"] = genfromtxt(ap["radio_map"], delimiter=",")
+			except OSError as error:
+				print("Can't load radio map file with path '%s'. Details: %s" % (ap["radio_map"], error))
+				exit(1)
+
 	def parse_config(self, config_file):
 		raw_contents = self._load_contents(config_file)
-		return self._decode_json(raw_contents)
+		decoded_contents = self._decode_json(raw_contents)
+		self._add_radio_maps(decoded_contents)
+		return decoded_contents

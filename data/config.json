@@ -10,7 +10,7 @@
 			"login" : "admin",
 			"password" : "password",
 			"monitoring_interface" : "wlan0",
-			"radio_map" : "file1.csv"
+			"radio_map" : "/home/maxim/Projects/WiFi-Trilateration/data/ap0_map.csv"
 		},
 		{
 			"ip_address" : "172.16.10.51",
@@ -18,7 +18,7 @@
 			"login" : "admin",
 			"password" : "password",
 			"monitoring_interface" : "wlan0",
-			"radio_map" : "file2.csv"
+			"radio_map" : "/home/maxim/Projects/WiFi-Trilateration/data/ap1_map.csv"
 		}
 	],
 	"monitoring_properties" : {
