@@ -23,4 +23,4 @@ class ConfigParser:
 
 	def parse_config(self, config_file):
 		raw_contents = self._load_contents(config_file)
-		decoded_contents = self._decode_json(raw_contents)
+		return self._decode_json(raw_contents)

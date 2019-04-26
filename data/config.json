@@ -1,0 +1,31 @@
+{
+	"map_properties" : {
+		"horisontal_lines" : 10,
+		"vertical_lines" : 10
+	},
+	"ap_properties" : [
+		{
+			"ip_address" : "172.16.10.50",
+			"ssh_port" : 22,
+			"login" : "admin",
+			"password" : "password",
+			"monitoring_interface" : "wlan0",
+			"radio_map" : "file1.csv"
+		},
+		{
+			"ip_address" : "172.16.10.51",
+			"ssh_port" : 22,
+			"login" : "admin",
+			"password" : "password",
+			"monitoring_interface" : "wlan0",
+			"radio_map" : "file2.csv"
+		}
+	],
+	"monitoring_properties" : {
+		"users" : {
+			"mac1" : "user1",
+			"mac2" : "user2"
+		},
+		"poll_interval" : 5 
+	}
+}
