@@ -1,8 +1,4 @@
 {
-	"map_properties" : {
-		"horisontal_lines" : 10,
-		"vertical_lines" : 10
-	},
 	"ap_properties" : [
 		{
 			"ip_address" : "172.16.10.50",
