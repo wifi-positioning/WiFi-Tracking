@@ -1,5 +1,7 @@
 from multiprocessing import Process
-from numpy import zeros
+from numpy import zeros, delete, unravel_index, any as is_not_all_zeros
+from texttable import Texttable
+from subprocess import call
 from re import findall
 
 class Locator(Process):
@@ -28,10 +30,26 @@ class Locator(Process):
 		return mac_to_vector
 
 	def _locate(self, vector):
-		pass
+		if is_not_all_zeros(vector):
+			remove_indexes = [idx for idx,rssi in enumerate(vector) if rssi == 0]
+			vector = delete(vector, remove_indexes)
+			radio_map = delete(self.radio_map, remove_indexes, axis=0)
+			distance_matrix = zeros(radio_map[0].shape)
+			for h in range(radio_map[0].shape[0]):
+				for v in range(radio_map[0].shape[1]):
+					distance_matrix[h,v] = (sum((vector - radio_map[:,h,v]) ** 2)) ** 0.5
+			position = unravel_index(distance_matrix.argmin(), distance_matrix.shape)
+			return position
 
 	def _output_positioning_info(self, mac_to_vector, mac_to_position):
-		print(mac_to_position)
+		info_table = Texttable()
+		info_table.set_cols_align(["c"] * (3 + self._radio_map.shape[0]))
+		rows = [["MAC", "Name", "Position"] + ["RSSI from AP%s, dBm" % idx for idx in range(self._radio_map.shape[0])]]
+		for mac,position in mac_to_position.items():
+		    rows.append([mac, self.mac_to_name[mac], position, *[rssi if rssi != 0 else None for rssi in mac_to_vector[mac]]])
+		info_table.add_rows(rows)
+		call(["clear"])
+		print(info_table.draw()) 
 
 	def run(self):
 		while True:
