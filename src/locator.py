@@ -33,7 +33,7 @@ class Locator(Process):
 		if is_not_all_zeros(vector):
 			remove_indexes = [idx for idx,rssi in enumerate(vector) if rssi == 0]
 			vector = delete(vector, remove_indexes)
-			radio_map = delete(self.radio_map, remove_indexes, axis=0)
+			radio_map = delete(self._radio_map, remove_indexes, axis=0)
 			distance_matrix = zeros(radio_map[0].shape)
 			for h in range(radio_map[0].shape[0]):
 				for v in range(radio_map[0].shape[1]):
