@@ -6,7 +6,15 @@
 			"login" : "admin",
 			"password" : "password",
 			"monitoring_interface" : "wlan0",
-			"radio_map" : "/home/maxim/Projects/WiFi-Trilateration/data/ap0_map.csv"
+			"radio_map" : "/home/tester/projects/WiFi-Trilateration/data/ap0_map.csv"
+		},
+		{
+			"ip_address" : "172.16.10.55",
+			"ssh_port" : 22,
+			"login" : "admin",
+			"password" : "password",
+			"monitoring_interface" : "wlan0",
+			"radio_map" : "/home/tester/projects/WiFi-Trilateration/data/ap1_map.csv"
 		},
 		{
 			"ip_address" : "172.16.10.51",
@@ -14,14 +22,14 @@
 			"login" : "admin",
 			"password" : "password",
 			"monitoring_interface" : "wlan0",
-			"radio_map" : "/home/maxim/Projects/WiFi-Trilateration/data/ap1_map.csv"
-		}
+			"radio_map" : "/home/tester/projects/WiFi-Trilateration/data/ap2_map.csv"
+                }
 	],
 	"monitoring_properties" : {
 		"users" : {
-			"mac1" : "user1",
-			"mac2" : "user2"
+			"80:ad:16:46:41:53" : "tester1",
+			"f4:f5:db:2d:b5:16" : "tester2"
 		},
-		"poll_interval" : 5 
+		"poll_interval" : 3
 	}
 }

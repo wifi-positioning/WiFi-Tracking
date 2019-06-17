@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Remote-editing stuff:
+.ftpconfig
+
 # C extensions
 *.so
 
