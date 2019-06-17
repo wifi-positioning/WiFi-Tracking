@@ -6,7 +6,11 @@
 			"login" : "admin",
 			"password" : "password",
 			"monitoring_interface" : "wlan0",
+<<<<<<< HEAD
 			"radio_map" : "/home/tester/projects/WiFi-Trilateration/data/ap0_map.csv"
+=======
+			"radio_map" : "/home/tester/WiFi-Trilateration/data/ap0_map.csv"
+>>>>>>> 539d98fcefe24ff052d8569af2e750e995f9df1e
 		},
 		{
 			"ip_address" : "172.16.10.55",
@@ -14,7 +18,11 @@
 			"login" : "admin",
 			"password" : "password",
 			"monitoring_interface" : "wlan0",
+<<<<<<< HEAD
 			"radio_map" : "/home/tester/projects/WiFi-Trilateration/data/ap1_map.csv"
+=======
+			"radio_map" : "/home/tester/WiFi-Trilateration/data/ap1_map.csv"
+>>>>>>> 539d98fcefe24ff052d8569af2e750e995f9df1e
 		},
 		{
 			"ip_address" : "172.16.10.51",
@@ -22,13 +30,22 @@
 			"login" : "admin",
 			"password" : "password",
 			"monitoring_interface" : "wlan0",
+<<<<<<< HEAD
 			"radio_map" : "/home/tester/projects/WiFi-Trilateration/data/ap2_map.csv"
+=======
+			"radio_map" : "/home/tester/WiFi-Trilateration/data/ap2_map.csv"
+>>>>>>> 539d98fcefe24ff052d8569af2e750e995f9df1e
                 }
 	],
 	"monitoring_properties" : {
 		"users" : {
+<<<<<<< HEAD
 			"80:ad:16:46:41:53" : "tester1",
 			"f4:f5:db:2d:b5:16" : "tester2"
+=======
+			"e4:92:fb:ae:76:53" : "Maxim",
+                        "dc:f7:56:63:14:88" : "Vadim"
+>>>>>>> 539d98fcefe24ff052d8569af2e750e995f9df1e
 		},
 		"poll_interval" : 3
 	}
