@@ -54,11 +54,11 @@ class Locator(Process):
 		print(info_table.draw())
 
 	def run(self):
-		if self.mode == "F":
-			while True:
-				probsup_dumps = self._locator_queue.get()
-				mac_to_vector = self._form_mac_to_vector_matchings(probsup_dumps)
-				mac_to_position = {mac:self._locate(vector) for mac,vector in mac_to_vector.items()}
-				self._output_positioning_info(mac_to_vector, mac_to_position)
-		elif self.mode == "L":
-			"Somebody once told me"
+		# if self.mode == "F":
+		while True:
+			probsup_dumps = self._locator_queue.get()
+			mac_to_vector = self._form_mac_to_vector_matchings(probsup_dumps)
+			mac_to_position = {mac:self._locate(vector) for mac,vector in mac_to_vector.items()}
+			self._output_positioning_info(mac_to_vector, mac_to_position)
+		# elif self.mode == "L":
+		# 	"Somebody once told me"

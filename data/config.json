@@ -23,7 +23,7 @@
 			"password" : "password",
 			"monitoring_interface" : "wlan0",
 			"radio_map" : "/home/tester/projects/WiFi-Trilateration/data/ap2_map.csv"
-                }
+    }
 	],
 	"monitoring_properties" : {
 		"users" : {
