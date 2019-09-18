@@ -13,10 +13,12 @@ def signal_handler(signal, frame):
 signal(SIGINT, signal_handler)
 
 # Extract config file path from cli args
-config_file = ArgParser().parse_args()
+args = ArgParser().parse_args()
 
 # Make config instance from received json file
-config = ConfigParser().parse_config(config_file)
+config = ConfigParser().parse_config(args.config_file)
+method = { "method" : args.mode }
+config.update(method)
 
 # Run server engine with config
 server_engine = Engine(config)
