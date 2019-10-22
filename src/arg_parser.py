@@ -18,5 +18,4 @@ class ArgParser:
 
 	def parse_args(self):
 		namespace = self._parser.parse_args()
-		print(namespace)
 		return namespace

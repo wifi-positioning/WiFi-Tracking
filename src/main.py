@@ -17,7 +17,8 @@ args = ArgParser().parse_args()
 
 # Make config instance from received json file
 config = ConfigParser().parse_config(args.config_file)
-method = args.mode
+method = { "method" : args.mode }
+config.update(method)
 
 # Run server engine with config
 server_engine = Engine(config)

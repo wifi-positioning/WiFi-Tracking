@@ -13,13 +13,14 @@ class Engine:
 		self.poll_interval = config["monitoring_properties"]["poll_interval"]
 		self._thread_pool = Pool(len(config["ap_properties"]))
 		self._locator_queue = Queue()
-		self._locator = Locator(self._locator_queue, config)
+		self._mode = config["method"]
+		self._locator = Locator(self._locator_queue, config, self._mode)
 
 	def _fetch_probsup_dump(self, ap):
 		client = SSHClient()
 		client.set_missing_host_key_policy(AutoAddPolicy())
 		try:
-			client.connect(hostname=ap["ip_address"], port=ap["ssh_port"], 
+			client.connect(hostname=ap["ip_address"], port=ap["ssh_port"],
 				           username=ap["login"], password=ap["password"], timeout=3)
 		except (NoValidConnectionsError, timeout):
 			return ""
