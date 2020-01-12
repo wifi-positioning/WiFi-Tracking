@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-from arg_parser import ArgParser
-from config_working.config_parser import ConfigParser
+from include.arg_parser import ArgParser
+from include.config_parser import ConfigParser
 from engine import Engine
 from signal import signal, SIGINT
 from sys import exit
