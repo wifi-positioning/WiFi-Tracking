@@ -1,4 +1,5 @@
 from multiprocessing import Process
+from gui import Window
 from numpy import zeros, delete, unravel_index, any as is_not_all_zeros
 from texttable import Texttable
 from subprocess import call
@@ -43,22 +44,21 @@ class Locator(Process):
 			position = unravel_index(distance_matrix.argmin(), distance_matrix.shape)
 			return position
 
-	def _output_positioning_info(self, mac_to_vector, mac_to_position):
-		info_table = Texttable()
-		info_table.set_cols_align(["c"] * (3 + self._radio_map.shape[0]))
-		rows = [["MAC", "Name", "Position"] + ["RSSI from AP%s, dBm" % idx for idx in range(self._radio_map.shape[0])]]
-		for mac,position in mac_to_position.items():
-		    rows.append([mac, self.mac_to_name[mac], position, *[rssi if rssi != 0 else None for rssi in mac_to_vector[mac]]])
-		info_table.add_rows(rows)
-		call(["clear"])
-		print(info_table.draw())
+	# def _output_positioning_info(self, mac_to_vector, mac_to_position):
+	# 	# info_table = Texttable()
+	# 	# info_table.set_cols_align(["c"] * (3 + self._radio_map.shape[0]))
+	# 	# rows = [["MAC", "Name", "Position"] + ["RSSI from AP%s, dBm" % idx for idx in range(self._radio_map.shape[0])]]
+	# 	# for mac,position in mac_to_position.items():
+	# 	#     rows.append([mac, self.mac_to_name[mac], position, *[rssi if rssi != 0 else None for rssi in mac_to_vector[mac]]])
+	# 	# info_table.add_rows(rows)
+	# 	# call(["clear"])
+	# 	# print(info_table.draw())
 
 	def run(self):
-		# if self.mode == "F":
 		while True:
 			probsup_dumps = self._locator_queue.get()
 			mac_to_vector = self._form_mac_to_vector_matchings(probsup_dumps)
 			mac_to_position = {mac:self._locate(vector) for mac,vector in mac_to_vector.items()}
-			self._output_positioning_info(mac_to_vector, mac_to_position)
-		# elif self.mode == "L":
-		# 	"Somebody once told me"
+			resulting_position = list(mac_to_position.values())
+			GUI_proc = Window(resulting_position)
+			GUI_proc(resulting_position)
