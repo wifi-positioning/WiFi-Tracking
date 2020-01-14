@@ -4,6 +4,7 @@ from numpy import zeros, delete, unravel_index, any as is_not_all_zeros
 from texttable import Texttable
 from subprocess import call
 from re import findall
+from tkinter import *
 
 global resulting_position
 class Locator(Process):
@@ -56,11 +57,15 @@ class Locator(Process):
 	# 	# print(info_table.draw())
 
 	def run(self):
-		GUI = Window.main()
+		root = Tk()
+		root.geometry("934x312")
+		root.resizable(False, False)
+		app = Window(root)
+
 		while True:
 			probsup_dumps = self._locator_queue.get()
 			mac_to_vector = self._form_mac_to_vector_matchings(probsup_dumps)
 			mac_to_position = {mac:self._locate(vector) for mac,vector in mac_to_vector.items()}
 			resulting_position = list(mac_to_position.values())
-			print(resulting_position)
-			GUI.drawPos(resulting_position)
+			Window.drawPos(app, resulting_position)
+			root.update()
