@@ -5,6 +5,7 @@ from texttable import Texttable
 from subprocess import call
 from re import findall
 
+global resulting_position
 class Locator(Process):
 
 	def __init__(self, locator_queue, config, mode):
@@ -55,10 +56,11 @@ class Locator(Process):
 	# 	# print(info_table.draw())
 
 	def run(self):
+		GUI = Window.main()
 		while True:
 			probsup_dumps = self._locator_queue.get()
 			mac_to_vector = self._form_mac_to_vector_matchings(probsup_dumps)
 			mac_to_position = {mac:self._locate(vector) for mac,vector in mac_to_vector.items()}
 			resulting_position = list(mac_to_position.values())
-			GUI_proc = Window(resulting_position)
-			GUI_proc(resulting_position)
+			print(resulting_position)
+			GUI.drawPos(resulting_position)
