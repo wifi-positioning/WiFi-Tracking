@@ -27,7 +27,8 @@
 	],
 	"monitoring_properties" : {
 		"users" : {
-			"60:ab:67:fe:d1:c5" : "agent"
+			"60:ab:67:fe:d1:c5" : "agent-1",
+			"04:92:26:33:a9:d9" : "agent-2"
 		},
 		"poll_interval" : 3
 	}
