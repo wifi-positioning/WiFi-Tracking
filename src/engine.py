@@ -1,6 +1,7 @@
 from multiprocessing.dummy import Pool
 from multiprocessing import Queue
 from locator import Locator
+from tracker import Tracker
 from time import sleep
 from paramiko import SSHClient, AutoAddPolicy
 from paramiko.ssh_exception import NoValidConnectionsError
@@ -14,7 +15,12 @@ class Engine:
 		self._thread_pool = Pool(len(config["ap_properties"]))
 		self._locator_queue = Queue()
 		self._mode = config["method"]
-		self._locator = Locator(self._locator_queue, config, self._mode)
+		if self._mode == "F":
+			print("Executing \"Fingerprinting\" method")
+			self._locator = Locator(self._locator_queue, config)
+		elif self._mode == "L":
+			print("Executing \"Trilateraion\" method")
+			self._locator = Tracker(self._locator_queue, config)
 
 	def _fetch_probsup_dump(self, ap):
 		client = SSHClient()

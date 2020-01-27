@@ -14,7 +14,7 @@ class ArgParser:
 		self._parser.add_argument("-m", "--mode", action="store", type=str,\
 		 						  dest="mode", required=True,\
 								  default="F",\
-								  help="Selects the positioning method from exisisting variants: Fingerprinting (F) / Lateration (L) / FTM (T).")
+								  help="Selects the positioning method from exisisting variants: Fingerprinting (F) / Lateration (L).")
 
 	def parse_args(self):
 		namespace = self._parser.parse_args()

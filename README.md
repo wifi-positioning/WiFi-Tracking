@@ -1,4 +1,4 @@
-## ![.](https://github.com/wifi-positioning/WiFi-Trilateration/raw/master/docs/images/logo.png "WiFi") Wi-Fi Trilateration
+## ![.](https://github.com/wifi-positioning/WiFi-Trilateration/raw/master/docs/images/logo.png "WiFi") Wi-Fi Tracking
 
 ---
 
@@ -6,10 +6,14 @@
 
 
 #### Overview
-  In this repository there is the simple implementation of the trilateration method for indoor positioning.
-This method _based on received signal strength indicator of wireless network_ (aka **WiFi RSSI**) through `Telnet`/`SSH`-connection and client's requests.
+  In this repository there is the simple implementation of methods for indoor positioning.
+  First method: "Fingerprinting"
+in this method, a map of radio space is taken in advance to further compare the reference with the results.
 
-  All needed information will be upload on the project's [Wiki](https://github.com/wifi-positioning/WiFi-Trilateration/wiki "Wiki") as soon as possible.
+  Second method: "Trilateration"
+This method based on _received signal strength indicator of wireless network_ (aka **WiFi RSSI**) through `Telnet`/`SSH`-connection and client's requests.
+
+  All needed information will be upload on the project's [Wiki](https://github.com/wifi-positioning/WiFi-Trilateration/wiki "Wiki") as soon as possible. (Certainly not)
 
 
 ---
