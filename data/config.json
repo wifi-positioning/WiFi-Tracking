@@ -28,7 +28,10 @@
 	"monitoring_properties" : {
 		"users" : {
 			"60:ab:67:fe:d1:c5" : "agent-1",
-			"04:92:26:33:a9:d9" : "agent-2"
+			"04:92:26:33:a9:d9" : "agent-2",
+			"88:36:5f:a5:6b:5c" : "agent-3",
+			"ac:c1:ee:e2:fa:15" : "agent-4",
+			"c4:9f:4c:79:79:a2" : "agent-5"
 		},
 		"poll_interval" : 3
 	}
