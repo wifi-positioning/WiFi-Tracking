@@ -67,6 +67,6 @@ class Fingerprinting(Process):
 
 			resulting_position = list(mac_to_position.values())
 			self._output_positioning_info(mac_to_vector, mac_to_position)
-			Window.drawPos(app, resulting_position)
+			Window.drawFinger(app, resulting_position)
 
 			root.update()

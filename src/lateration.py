@@ -1,5 +1,5 @@
 from multiprocessing import Process
-from gui_v import Window
+from gui import Window
 from numpy import zeros, delete, unravel_index, any as is_not_all_zeros
 from texttable import Texttable
 from subprocess import call
@@ -8,8 +8,9 @@ from tkinter import *
 
 class Lateration(Process):
 
-	def __init__(self, locator_queue, config):
+	def __init__(self, locator_queue, config, clr_arr):
 		super().__init__()
+		self._clr_arr = clr_arr
 		self._locator_queue = locator_queue
 		self._ap_amount = len(config["ap_properties"])
 		self.mac_to_name = config["monitoring_properties"]["users"]
@@ -29,7 +30,6 @@ class Lateration(Process):
 		if is_not_all_zeros(vector):
 			remove_indexes = [idx for idx,rssi in enumerate(vector) if rssi == 0]
 			vector = delete(vector, remove_indexes)
-			# TODO: Add the Trilateraion's implementation
 			distance_v = zeros(vector.shape[0])
 			template_v = [[13.8, -70, 6], [1.5, -47, 1], [13.6, -73, -2]]
 			for idx in range(vector.shape[0]):
@@ -47,8 +47,12 @@ class Lateration(Process):
 		print(info_table.draw())
 
 	def run(self):
+		resolution = [0, 0, ""]
+		resolution[0] = 934
+		resolution[1] = 312 + 30*len(self._clr_arr)
+		resolution[2] = str(resolution[0]) + "x" + str(resolution[1])
 		root = Tk()
-		root.geometry("934x312")
+		root.geometry(resolution[2])
 		root.resizable(False, False)
 		app = Window(root)
 
@@ -59,6 +63,6 @@ class Lateration(Process):
 
 			resulting_position = list(mac_to_position.values())
 			self._output_positioning_info(mac_to_vector, mac_to_position)
-			Window.drawPos(app, resulting_position)
+			Window.drawLater(app, resulting_position, self._clr_arr, resolution)
 
 			root.update()
