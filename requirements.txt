@@ -1,0 +1,5 @@
+configparser
+numpy
+paramiko
+Pillow
+texttable

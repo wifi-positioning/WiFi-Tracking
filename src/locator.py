@@ -1,5 +1,5 @@
 from multiprocessing import Process
-from gui import Window
+from include.gui import Window
 from numpy import zeros, delete, unravel_index, any as is_not_all_zeros
 from texttable import Texttable
 from subprocess import call

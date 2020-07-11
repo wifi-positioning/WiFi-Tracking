@@ -6,7 +6,7 @@
 			"login" : "admin",
 			"password" : "password",
 			"monitoring_interface" : "wlan0",
-			"radio_map" : "/home/archie/SibSUTIS/WiFi-Trilateration/data/ap0_map.csv"
+			"radio_map" : "/home/archie/SibSUTIS/WiFi-Trilateration/data/maps/ap0_map.csv"
 		},
 		{
 			"ip_address" : "172.16.10.55",
@@ -14,7 +14,7 @@
 			"login" : "admin",
 			"password" : "password",
 			"monitoring_interface" : "wlan0",
-			"radio_map" : "/home/archie/SibSUTIS/WiFi-Trilateration/data/ap1_map.csv"
+			"radio_map" : "/home/archie/SibSUTIS/WiFi-Trilateration/data/maps/ap1_map.csv"
 		},
 		{
 			"ip_address" : "172.16.10.51",
@@ -22,7 +22,7 @@
 			"login" : "admin",
 			"password" : "password",
 			"monitoring_interface" : "wlan0",
-			"radio_map" : "/home/archie/SibSUTIS/WiFi-Trilateration/data/ap2_map.csv"
+			"radio_map" : "/home/archie/SibSUTIS/WiFi-Trilateration/data/maps/ap2_map.csv"
     }
 	],
 	"monitoring_properties" : {
