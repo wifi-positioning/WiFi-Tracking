@@ -1,0 +1,160 @@
+	{
+	"ap_properties" : [
+		{
+			"ip_address" : "192.168.44.47",
+			"ssh_port" : 22,
+			"ap_type" : 0,
+			"login" : "admin",
+			"password" : "Wepp@ssword",
+			"monitoring_interface" : "wlan0",
+			"radio_map" : "/home/areahon/SibSUTIS/WiFi-Tracking/data/maps/ap0_map.csv"
+		},
+		{
+			"ip_address" : "192.168.44.46",
+			"ssh_port" : 22,
+			"ap_type" : 0,
+			"login" : "admin",
+			"password" : "password",
+			"monitoring_interface" : "wlan0",
+			"radio_map" : "/home/areahon/SibSUTIS/WiFi-Tracking/data/maps/ap1_map.csv"
+		},
+		{
+			"ip_address" : "192.168.44.194",
+			"ssh_port" : 22,
+			"ap_type" : 0,
+			"login" : "admin",
+			"password" : "password",
+			"monitoring_interface" : "wlan0",
+			"radio_map" : "/home/areahon/SibSUTIS/WiFi-Tracking/data/maps/ap2_map.csv"
+		},
+		{
+			"ip_address" : "192.168.44.82",
+			"ssh_port" : 22,
+			"ap_type" : 1,
+			"login" : "admin",
+			"password" : "password",
+			"monitoring_interface" : "wlan0",
+			"radio_map" : "/home/areahon/SibSUTIS/WiFi-Tracking/data/maps/ap3_map.csv"
+		},
+		{
+			"ip_address" : "192.168.44.81",
+			"ssh_port" : 22,
+			"ap_type" : 0,
+			"login" : "admin",
+			"password" : "password",
+			"monitoring_interface" : "wlan0",
+			"radio_map" : "/home/areahon/SibSUTIS/WiFi-Tracking/data/maps/ap4_map.csv"
+		},
+		{
+			"ip_address" : "192.168.40.30",
+			"ssh_port" : 22,
+			"ap_type" : 0,
+			"login" : "admin",
+			"password" : "password",
+			"monitoring_interface" : "wlan0",
+			"radio_map" : "/home/areahon/SibSUTIS/WiFi-Tracking/data/maps/ap5_map.csv"
+		},
+		{
+			"ip_address" : "192.168.40.31",
+			"ssh_port" : 22,
+			"ap_type" : 0,
+			"login" : "admin",
+			"password" : "password",
+			"monitoring_interface" : "wlan0",
+			"radio_map" : "/home/areahon/SibSUTIS/WiFi-Tracking/data/maps/ap6_map.csv"
+		},
+		{
+			"ip_address" : "192.168.44.84",
+			"ssh_port" : 22,
+			"ap_type" : 1,
+			"login" : "admin",
+			"password" : "password",
+			"monitoring_interface" : "wlan0",
+			"radio_map" : "/home/areahon/SibSUTIS/WiFi-Tracking/data/maps/ap7_map.csv"
+		},
+		{
+			"ip_address" : "192.168.44.171",
+			"ssh_port" : 22,
+			"ap_type" : 0,
+			"login" : "admin",
+			"password" : "password",
+			"monitoring_interface" : "wlan0",
+			"radio_map" : "/home/areahon/SibSUTIS/WiFi-Tracking/data/maps/ap8_map.csv"
+		},
+		{
+			"ip_address" : "192.168.44.172",
+			"ssh_port" : 22,
+			"ap_type" : 0,
+			"login" : "admin",
+			"password" : "password",
+			"monitoring_interface" : "wlan0",
+			"radio_map" : "/home/areahon/SibSUTIS/WiFi-Tracking/data/maps/ap9_map.csv"
+		},
+		{
+			"ip_address" : "192.168.44.133",
+			"ssh_port" : 22,
+			"ap_type" : 0,
+			"login" : "admin",
+			"password" : "password",
+			"monitoring_interface" : "wlan0",
+			"radio_map" : "/home/areahon/SibSUTIS/WiFi-Tracking/data/maps/ap10_map.csv"
+		},
+		{
+			"ip_address" : "192.168.44.95",
+			"ssh_port" : 22,
+			"ap_type" : 0,
+			"login" : "admin",
+			"password" : "password",
+			"monitoring_interface" : "wlan0",
+			"radio_map" : "/home/areahon/SibSUTIS/WiFi-Tracking/data/maps/ap11_map.csv"
+		},
+		{
+			"ip_address" : "192.168.44.89",
+			"ssh_port" : 22,
+			"ap_type" : 1,
+			"login" : "admin",
+			"password" : "password",
+			"monitoring_interface" : "wlan0",
+			"radio_map" : "/home/areahon/SibSUTIS/WiFi-Tracking/data/maps/ap12_map.csv"
+		},
+		{
+			"ip_address" : "192.168.44.87",
+			"ssh_port" : 22,
+			"ap_type" : 1,
+			"login" : "admin",
+			"password" : "password",
+			"monitoring_interface" : "wlan0",
+			"radio_map" : "/home/areahon/SibSUTIS/WiFi-Tracking/data/maps/ap13_map.csv"
+		},
+		{
+			"ip_address" : "192.168.44.90",
+			"ssh_port" : 22,
+			"ap_type" : 1,
+			"login" : "admin",
+			"password" : "password",
+			"monitoring_interface" : "wlan0",
+			"radio_map" : "/home/areahon/SibSUTIS/WiFi-Tracking/data/maps/ap14_map.csv"
+		},
+		{
+			"ip_address" : "192.168.44.88",
+			"ssh_port" : 22,
+			"ap_type" : 1,
+			"login" : "admin",
+			"password" : "password",
+			"monitoring_interface" : "wlan0",
+			"radio_map" : "/home/areahon/SibSUTIS/WiFi-Tracking/data/maps/ap15_map.csv"
+		}
+	],
+	"monitoring_properties" : {
+		"users" : {
+			"60:ab:67:fe:d1:c5" : "agent-1",
+			"04:92:26:33:a9:d9" : "agent-2",
+			"ac:c1:ee:e2:fa:15" : "agent-3",
+			"c4:9f:4c:79:79:a2" : "agent-4"
+		},
+		"non_active_users" : {
+			"60:ab:67:ea:2c:19" : "agent-5"
+		},
+		"poll_interval" : 2
+	}
+}

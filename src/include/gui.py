@@ -11,13 +11,13 @@ class Window(Frame):
     def initUI(self):
         self.master.title("WiFi Positioning")
         self.pack(fill=BOTH, expand=1)
-        self.map = ImageTk.PhotoImage(Image.open("data/map.png"))
+        self.map = ImageTk.PhotoImage(Image.open("data/images/map.png"))
         self.layer = Canvas(self, width=934, height=312)
         self.layer.create_image(0, 0, anchor=NW, image=self.map)
         self.layer.pack(fill=BOTH, expand=1)
 
     def drawPos(self, position_list):
-        self.agent = ImageTk.PhotoImage(Image.open("data/agent.png"))
+        self.agent = ImageTk.PhotoImage(Image.open("data/images/agent.png"))
         for position in position_list:
             if position:
                 posX = position[0]

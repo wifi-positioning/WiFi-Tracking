@@ -24,14 +24,22 @@ class Engine:
 				           username=ap["login"], password=ap["password"], timeout=3)
 		except (NoValidConnectionsError, timeout):
 			return ""
-		connect = client.invoke_shell()
-		connect.send("wl -i %s probsup_dump\n" % ap["monitoring_interface"])
-		while not connect.recv_ready():
-			sleep(0.1)
-		probsup_dump = connect.recv(50000).decode()
-		connect.close()
+		rssi_dump = [None for cnt in range(2)]
+		if ap["ap_type"] == 0:
+			rssi_dump[0] = 0
+			connect = client.invoke_shell()
+			connect.send("wl -i %s probsup_dump\n" % ap["monitoring_interface"])
+			while not connect.recv_ready():
+				sleep(0.1)
+			rssi_dump[1] = connect.recv(50000).decode()
+			connect.close()
+		elif ap["ap_type"] == 1:
+			rssi_dump[0] = 1
+			(stdin, stdout, stderr) = client.exec_command("monitoring clients hw-addr rssi-1\n")
+			rssi_dump[1] = stdout.readlines()
+			# connect.send("monitoring clients hw-addr rssi-1\n")
 		client.close()
-		return probsup_dump
+		return rssi_dump
 
 	def shutdown(self):
 		self._thread_pool.close()
