@@ -58,23 +58,17 @@ class Locator(Process):
 		if is_not_all_zeros(vector):
 			remove_indexes = [idx for idx,rssi in enumerate(vector) if rssi == 0]
 			vector = delete(vector, remove_indexes)
+			res_indexes = sorted(range(len(vector)), key=lambda i: vector[i], reverse=True)[:3]
+			extra_indexes = [i for i, element in enumerate(vector) if i not in res_indexes]
+			vector = delete(vector, extra_indexes)
 			radio_map = delete(self._radio_map, remove_indexes, axis=0)
+			radio_map = delete(radio_map, extra_indexes, axis=0)
 			distance_matrix = zeros(radio_map[0].shape)
 			for h in range(radio_map[0].shape[0]):
 				for v in range(radio_map[0].shape[1]):
 					distance_matrix[h,v] = (sum((vector - radio_map[:,h,v]) ** 2)) ** 0.5
 			position = unravel_index(distance_matrix.argmin(), distance_matrix.shape)
 			return position
-
-	def _output_positioning_info(self, mac_to_vector, mac_to_position):
-		info_table = Texttable()
-		info_table.set_cols_align(["c"] * (3 + self._radio_map.shape[0]))
-		rows = [["MAC", "Name", "Position"] + ["RSSI from AP%s, dBm" % idx for idx in range(self._radio_map.shape[0])]]
-		for mac,position in mac_to_position.items():
-		    rows.append([mac, self.mac_to_name[mac], position, *[rssi if rssi != 0 else None for rssi in mac_to_vector[mac]]])
-		info_table.add_rows(rows)
-		call(["clear"])
-		print(info_table.draw())
 
 	def _data_export(self, mac_to_vector, mac_to_position):
 		iter_mac = 0
@@ -96,6 +90,16 @@ class Locator(Process):
 				writer.writerow([mac, self.mac_to_name[mac], rssi_fin[iter_mac]])
 				iter_mac += 1
 
+	def _output_positioning_info(self, mac_to_vector, mac_to_position):
+		info_table = Texttable()
+		info_table.set_cols_align(["c"] * (3 + self._radio_map.shape[0]))
+		rows = [["MAC", "Name", "Position"] + ["RSSI from AP%s, dBm" % idx for idx in range(self._radio_map.shape[0])]]
+		for mac,position in mac_to_position.items():
+		    rows.append([mac, self.mac_to_name[mac], position, *[rssi if rssi != 0 else "N/A" for rssi in mac_to_vector[mac]]])
+		info_table.add_rows(rows)
+		call(["clear"])
+		print(info_table.draw())
+
 	def run(self):
 		# root = Tk()
 		# root.geometry("934x312")
@@ -108,9 +112,8 @@ class Locator(Process):
 			mac_to_position = {mac:self._locate(vector) for mac,vector in mac_to_vector.items()}
 
 			resulting_position = list(mac_to_position.values())
-			# self._output_positioning_info(mac_to_vector, mac_to_position)
-			self._data_export(mac_to_vector, mac_to_position)
-			print("Data saved!")
+			# self._data_export(mac_to_vector, mac_to_position)
+			self._output_positioning_info(mac_to_vector, mac_to_position)
 			# Window.drawPos(app, resulting_position)
 
 			# root.update()
