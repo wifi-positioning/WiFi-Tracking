@@ -93,10 +93,11 @@ class Locator(Process):
 	def _output_positioning_info(self, mac_to_vector, mac_to_position):
 		info_table = Texttable()
 		info_table.set_cols_align(["c"] * (3 + self._radio_map.shape[0]))
+		info_table.set_cols_width([5] * (3 + self._radio_map.shape[0]))
 		rows = [["MAC", "Name", "Position"] + ["RSSI from AP%s, dBm" % idx for idx in range(self._radio_map.shape[0])]]
 		for mac,position in mac_to_position.items():
 		    rows.append([mac, self.mac_to_name[mac], position, *[rssi if rssi != 0 else "N/A" for rssi in mac_to_vector[mac]]])
-		info_table.add_rows(rows)
+		info_table.add_rows(rows, header=True)
 		call(["clear"])
 		print(info_table.draw())
 
